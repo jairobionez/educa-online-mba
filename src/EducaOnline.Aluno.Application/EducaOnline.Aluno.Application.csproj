@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AutoMapper\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EducaOnline.Aluno.Data\EducaOnline.Aluno.Data.csproj" />
+    <ProjectReference Include="..\EducaOnline.Aluno.Domain\EducaOnline.Aluno.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

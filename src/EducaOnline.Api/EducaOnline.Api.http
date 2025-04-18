@@ -1,0 +1,6 @@
+@EducaOnline.Api_HostAddress = http://localhost:5193
+
+GET {{EducaOnline.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
