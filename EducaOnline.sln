@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing", "src\EventS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8DF72C19-37B6-4612-9265-7DFAF4622DF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducaOnline.Core", "src\EducaOnline.Core\EducaOnline.Core.csproj", "{79D4EBD4-250E-4990-AE63-2C65FC9110A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Core", "src\EducaOnline.Core\EducaOnline.Core.csproj", "{79D4EBD4-250E-4990-AE63-2C65FC9110A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

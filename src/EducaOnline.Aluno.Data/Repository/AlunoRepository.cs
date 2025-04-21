@@ -1,5 +1,6 @@
 ﻿using EducaOnline.Aluno.Domain;
 using EducaOnline.Core.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EducaOnline.Aluno.Data.Repository
 {
@@ -14,9 +15,19 @@ namespace EducaOnline.Aluno.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public void Adicionar(Domain.Aluno aluno)
+        public void AdicionarAluno(Domain.Aluno aluno)
         {
-            _context.Set<Domain.Aluno>().Add(aluno);
+            _context.Alunos.Add(aluno);
+        }
+
+        public async Task<Domain.Aluno?> BuscarAlunoPorId(Guid id)
+        {
+            return await _context.Alunos.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<Domain.Aluno?> BuscarAlunoPorRa(string ra)
+        {
+            return await _context.Alunos.FirstOrDefaultAsync(p => p.Ra == ra);
         }
 
         public void Dispose()

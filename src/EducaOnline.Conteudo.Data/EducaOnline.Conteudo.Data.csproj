@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EducaOnline.Conteudo.Domain\EducaOnline.Conteudo.Domain.csproj" />
+    <ProjectReference Include="..\EducaOnline.Core\EducaOnline.Core.csproj" />
+  </ItemGroup>
+
 </Project>

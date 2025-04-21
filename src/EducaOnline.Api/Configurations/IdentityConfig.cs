@@ -1,5 +1,5 @@
-﻿using EducaOnline.Api.Extensions;
-using EducaOnline.Core.Data;
+﻿using EducaOnline.Api.Data;
+using EducaOnline.Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;

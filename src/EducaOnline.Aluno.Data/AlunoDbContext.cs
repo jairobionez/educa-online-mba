@@ -1,4 +1,5 @@
-﻿using EducaOnline.Core.Data;
+﻿using EducaOnline.Aluno.Domain;
+using EducaOnline.Core.Data;
 using EducaOnline.Core.Messages;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +10,9 @@ namespace EducaOnline.Aluno.Data
         public AlunoDbContext(DbContextOptions<AlunoDbContext> options)
             : base(options) { }
 
-        public DbSet<Domain.Aluno> Produtos { get; set; }
+        public DbSet<Domain.Aluno> Alunos { get; set; }
+        public DbSet<Certificado> Certificados { get; set; }
+        public DbSet<Matricula> Matriculas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

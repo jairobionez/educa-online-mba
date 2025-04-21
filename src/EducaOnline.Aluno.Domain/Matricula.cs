@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducaOnline.Core.DomainObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EducaOnline.Aluno.Domain
 {
-    public class Matricula
+    public class Matricula : Entity
     {
         protected Matricula()
         {
@@ -23,5 +24,9 @@ namespace EducaOnline.Aluno.Domain
         public Guid Id { get; private set; }
         public Guid CursoId { get; private set; }
         public DateTime DataMatricula { get; private set; }
+        public bool Ativa { get; private set; }
+
+        public Guid AlunoId { get; private set; }
+        public Aluno Aluno { get; private set; }
     }
 }

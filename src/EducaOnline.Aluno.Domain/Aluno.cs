@@ -12,10 +12,11 @@ namespace EducaOnline.Aluno.Domain
             DataCadastro = DateTime.Now;
         }
 
-        public Aluno(string nome)
+        public Aluno(Guid id, string nome, string email)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             Nome = nome;
+            Email = email;
             Matriculas = new HashSet<Matricula>();
             Certificados = new HashSet<Certificado>();
             DataCadastro = DateTime.Now;
@@ -24,6 +25,7 @@ namespace EducaOnline.Aluno.Domain
         public Guid Id { get; private set; }
         public string Nome { get; private set; }
         public string Ra { get; private set; }
+        public string Email { get; private set; }
         public DateTime? DataCadastro { get; private set; }
         public HistoricoAprendizado HistoricoAprendizado { get; private set; }
 

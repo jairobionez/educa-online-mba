@@ -1,4 +1,5 @@
 ﻿using EducaOnline.Aluno.Data;
+using EducaOnline.Api.Data;
 using EducaOnline.Core.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

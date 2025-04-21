@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EducaOnline.Aluno.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection.Emit;
 
@@ -12,21 +13,6 @@ namespace EducaOnline.Aluno.Data.Mappings
 
             builder.HasKey(x => x.Id);
 
-
-            builder
-                .OwnsMany(a => a.Matriculas, b =>
-                {
-                    b.WithOwner().HasForeignKey("AlunoId");
-                    b.HasKey("Id");
-                });
-
-            builder
-                .OwnsMany(a => a.Certificados, b =>
-                {
-                    b.WithOwner().HasForeignKey("AlunoId");
-                    b.HasKey("Id");
-                });
-
             builder.OwnsOne(p => p.HistoricoAprendizado)
                 .Property(p => p.TotalAulasConcluidas);
 
@@ -35,6 +21,34 @@ namespace EducaOnline.Aluno.Data.Mappings
 
             builder.OwnsOne(p => p.HistoricoAprendizado)
                .Property(p => p.MediaAproveitamento);
+
+            builder.HasMany(p => p.Matriculas)
+                .WithOne(p => p.Aluno)
+                .HasForeignKey(p => p.AlunoId);
+
+            builder.HasMany(p => p.Certificados)
+                .WithOne(p => p.Aluno)
+                .HasForeignKey(p => p.AlunoId);
+        }
+    }
+
+    public class MatriculaMapping : IEntityTypeConfiguration<Matricula>
+    {
+        public void Configure(EntityTypeBuilder<Matricula> builder)
+        {
+            builder.ToTable("Matricula");
+
+            builder.HasKey(x => x.Id);
+        }
+    }
+
+    public class CertificadoMapping : IEntityTypeConfiguration<Certificado>
+    {
+        public void Configure(EntityTypeBuilder<Certificado> builder)
+        {
+            builder.ToTable("Certificado");
+
+            builder.HasKey(x => x.Id);
         }
     }
 }
