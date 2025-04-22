@@ -14,15 +14,15 @@ namespace EducaOnline.Aluno.Domain
             
         }
 
-        public Certificado(Guid cursoId)
+        public Certificado(string curso)
         {
             Id = Guid.NewGuid();
-            CursoId = cursoId;
+            Curso = curso;
             DataEmissao = DateTime.UtcNow;
             Numero = $"Cert-{new Random().Next(1, 99999)}";
         }
 
-        public Guid CursoId { get; private set; }
+        public string Curso { get; private set; }
         public string Numero { get; private set; }
         public DateTime DataEmissao { get; private set; }
 

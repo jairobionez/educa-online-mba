@@ -1,5 +1,6 @@
 ﻿using EducaOnline.Aluno.Data;
 using EducaOnline.Api.Data;
+using EducaOnline.Conteudo.Data;
 using EducaOnline.Core.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,9 @@ namespace EducaOnline.Api.Configurations
                 options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<AlunoDbContext>(options =>
+               options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<ConteudoDbContext>(options =>
                options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();

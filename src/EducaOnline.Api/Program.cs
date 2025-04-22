@@ -1,5 +1,6 @@
 
 using EducaOnline.Api.Configurations;
+using EducaOnline.Conteudo.Application.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Configuration
 builder.Services.AddApiConfig(builder.Configuration);
 builder.Services.AddDependencyConfig();
 builder.Services.AddIdentityConfig(builder.Configuration);
+builder.Services.AddAutoMapper(typeof(ConteudoMapperConfig));
 
 var app = builder.Build();
 

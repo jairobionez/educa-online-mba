@@ -1,0 +1,10 @@
+
+
+
+-- Api
+
+dotnet ef migrations add Initial --context ApplicationDbContext -p ./ -s ./ -o ./Data/Migrations
+
+
+-- Aluno
+dotnet ef migrations add Initial --context AlunoDbContext -p ./ -s ../EducaOnline.Aluno.Api -o ./Data/Migrations

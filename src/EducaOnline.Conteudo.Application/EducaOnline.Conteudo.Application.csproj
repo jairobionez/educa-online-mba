@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EducaOnline.Conteudo.Domain\EducaOnline.Conteudo.Domain.csproj" />
+    <ProjectReference Include="..\EducaOnline.Core\EducaOnline.Core.csproj" />
+  </ItemGroup>
+
 </Project>

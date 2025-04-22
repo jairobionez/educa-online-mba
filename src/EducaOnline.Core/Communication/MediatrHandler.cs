@@ -9,13 +9,10 @@ namespace EducaOnline.Core.Communication
     public class MediatorHandler : IMediatorHandler
     {
         private readonly IMediator _mediator;
-        private readonly IEventSourcingRepository _eventSourcingRepository;
 
-        public MediatorHandler(IMediator mediator,
-                               IEventSourcingRepository eventSourcingRepository)
+        public MediatorHandler(IMediator mediator)
         {
             _mediator = mediator;
-            _eventSourcingRepository = eventSourcingRepository;
         }
 
         public async Task<bool> EnviarComando<T>(T comando) where T : Command
@@ -26,7 +23,6 @@ namespace EducaOnline.Core.Communication
         public async Task PublicarEvento<T>(T evento) where T : Event
         {
             await _mediator.Publish(evento);
-            await _eventSourcingRepository.SalvarEvento(evento);
 
         }
 

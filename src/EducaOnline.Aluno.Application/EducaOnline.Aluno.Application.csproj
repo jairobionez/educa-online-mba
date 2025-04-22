@@ -15,4 +15,8 @@
     <ProjectReference Include="..\EducaOnline.Aluno.Domain\EducaOnline.Aluno.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
 </Project>

@@ -23,8 +23,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EducaOnline.Aluno.Application\EducaOnline.Aluno.Application.csproj" />
+    <ProjectReference Include="..\EducaOnline.Conteudo.Application\EducaOnline.Conteudo.Application.csproj" />
+    <ProjectReference Include="..\EducaOnline.Conteudo.Data\EducaOnline.Conteudo.Data.csproj" />
     <ProjectReference Include="..\EducaOnline.Core\EducaOnline.Core.csproj" />
-    <ProjectReference Include="..\EventSourcing\EventSourcing.csproj" />
   </ItemGroup>
 
 </Project>

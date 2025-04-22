@@ -9,7 +9,7 @@ namespace EducaOnline.Conteudo.Domain.ValueObjects
             
         }
 
-        public ConteudoProgramatico(string titulo, string descricao, string cargaHoraria, string objetivos)
+        public ConteudoProgramatico(string titulo, string descricao, int cargaHoraria, string objetivos)
         {
             Titulo = titulo;
             Descricao = descricao;
@@ -19,7 +19,7 @@ namespace EducaOnline.Conteudo.Domain.ValueObjects
 
         public string Titulo { get; private set; }
         public string Descricao { get; private set; }
-        public string CargaHoraria { get; private set; }
+        public int CargaHoraria { get; private set; }
         public string Objetivos { get; private set; }
     }
 }
