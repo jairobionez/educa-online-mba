@@ -30,7 +30,7 @@ Desenvolver uma plataforma educacional online com múltiplos bounded contexts (B
     -   Entity Framework Core
 -  **Libs principais:**
     -  MediatR
-    -  EventStore.Client
+    -  AutoMapper
 -   **Banco de Dados:**  SQLite
 -   **Autenticação e Autorização:**
     -   ASP.NET Core Identity
