@@ -1,10 +1,8 @@
 ﻿using EducaOnline.Aluno.Data;
 using EducaOnline.Api.Data;
 using EducaOnline.Conteudo.Data;
-using EducaOnline.Core.Data;
-using Microsoft.AspNetCore.Hosting;
+using EducaOnline.Financeiro.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace EducaOnline.Api.Configurations
 {
@@ -20,6 +18,9 @@ namespace EducaOnline.Api.Configurations
 
             services.AddDbContext<ConteudoDbContext>(options =>
                options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<PagamentoDbContext>(options =>
+              options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 

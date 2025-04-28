@@ -39,6 +39,9 @@ namespace EducaOnline.Aluno.Data.Mappings
             builder.ToTable("Matricula");
 
             builder.HasKey(x => x.Id);
+
+            builder.Property(p => p.Vigente)
+                .HasDefaultValue(false);
         }
     }
 

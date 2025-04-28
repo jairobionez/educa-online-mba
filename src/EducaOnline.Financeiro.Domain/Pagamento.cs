@@ -15,10 +15,11 @@ namespace EducaOnline.Financeiro.Domain
             
         }
 
-        public Pagamento(Guid cursoId, decimal valorPago)
+        public Pagamento(Guid cursoId, Guid alunoId, decimal valorPago)
         {
             CursoId = cursoId;
             ValorPago = valorPago;
+            AlunoId = alunoId;
         }
 
         public Guid CursoId { get; private set; }
@@ -27,5 +28,16 @@ namespace EducaOnline.Financeiro.Domain
 
         public DadosCartao DadosCartao { get; private set; }
         public StatusPagamento StatusPagamento { get; private set; }
+
+        public bool CartaoValido()
+        {
+            if (DadosCartao.NumeroCartao == "1111111111111111" && DadosCartao.CvvCartao == "123")
+                return true;
+
+            return false;
+        }
+
+        public void AdicionarDadosCartao(DadosCartao dados) => DadosCartao = dados;
+        public void AtualizarStatus(int codigo, string descricao) => StatusPagamento = new StatusPagamento(codigo, descricao);
     }
 }

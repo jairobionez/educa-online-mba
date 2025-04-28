@@ -20,6 +20,11 @@ namespace EducaOnline.Aluno.Data.Repository
             _context.Alunos.Add(aluno);
         }
 
+        public void AtualizarAluno(Domain.Aluno aluno)
+        {
+            _context.Alunos.Update(aluno);
+        }
+
         public async Task<Domain.Aluno?> BuscarAlunoPorId(Guid id)
         {
             return await _context.Alunos.FirstOrDefaultAsync(p => p.Id == id);

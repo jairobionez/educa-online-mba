@@ -6,6 +6,8 @@ using EducaOnline.Conteudo.Domain;
 using EducaOnline.Conteudo.Domain.Services;
 using EducaOnline.Core.Communication;
 using EducaOnline.Core.Messages.CommonMessages.Notifications;
+using EducaOnline.Financeiro.Data.Repository;
+using EducaOnline.Financeiro.Domain;
 using MediatR;
 
 namespace EducaOnline.Api.Configurations
@@ -25,6 +27,9 @@ namespace EducaOnline.Api.Configurations
             services.AddScoped<IConteudoAppService, ConteudoAppService>();
             services.AddScoped<IConteudoService, ConteudoService>();
             services.AddScoped<IConteudoRepository, ConteudoRepository>();
+
+            // Financeiro
+            services.AddScoped<IFinanceiroRepository, FinanceiroRepository>();
 
             // Notificacoes
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();

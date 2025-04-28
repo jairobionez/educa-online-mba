@@ -16,15 +16,15 @@ namespace EducaOnline.Aluno.Domain
 
         public Matricula(Guid cursoId)
         {
-            Id = Guid.NewGuid();
             CursoId = cursoId;
             DataMatricula = DateTime.UtcNow;
+            Vigente = true;
         }
 
         public Guid Id { get; private set; }
         public Guid CursoId { get; private set; }
         public DateTime DataMatricula { get; private set; }
-        public bool Ativa { get; private set; }
+        public bool Vigente { get; private set; }
 
         public Guid AlunoId { get; private set; }
         public Aluno Aluno { get; private set; }
