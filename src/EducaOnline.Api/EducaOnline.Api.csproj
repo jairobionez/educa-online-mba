@@ -26,6 +26,7 @@
     <ProjectReference Include="..\EducaOnline.Conteudo.Application\EducaOnline.Conteudo.Application.csproj" />
     <ProjectReference Include="..\EducaOnline.Conteudo.Data\EducaOnline.Conteudo.Data.csproj" />
     <ProjectReference Include="..\EducaOnline.Core\EducaOnline.Core.csproj" />
+    <ProjectReference Include="..\EducaOnline.Financeiro.Data\EducaOnline.Financeiro.Data.csproj" />
   </ItemGroup>
 
 </Project>
