@@ -30,7 +30,7 @@ Desenvolver uma plataforma educacional online com múltiplos bounded contexts (B
     -   Entity Framework Core
 -  **Libs principais:**
     -  MediatR
-    -  EventStore.Client
+    -  AutoMapper
 -   **Banco de Dados:**  SQLite
 -   **Autenticação e Autorização:**
     -   ASP.NET Core Identity
@@ -45,7 +45,6 @@ A estrutura do projeto é organizada da seguinte forma:
 -   src/
     -   WebApis/EducaOnline.Api/ - API RESTful
     -   Services/ - Contextos delimitados para Aluno/Conteudo/Financeiro
-    -   BuildingBlocks/ - Controle de eventos da aplicação
   
 -   README.md - Arquivo de Documentação do Projeto
 -   FEEDBACK.md - Arquivo para Consolidação dos Feedbacks
