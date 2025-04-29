@@ -31,9 +31,7 @@ namespace EducaOnline.Conteudo.Domain
         public bool Ativo { get; private set; }
 
         public ConteudoProgramatico? ConteudoProgramatico { get; private set; }
-
-        public ICollection<Aula>? Aulas { get; set; }
-
+        public ICollection<Aula>? Aulas { get; private set; }
 
 
         public void Atualizar(string nome)

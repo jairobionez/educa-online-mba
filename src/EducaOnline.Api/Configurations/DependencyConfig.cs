@@ -21,7 +21,6 @@ namespace EducaOnline.Api.Configurations
 
             //Aluno
             services.AddScoped<IAlunoRepository, AlunoRepository>();
-            services.AddScoped<IAlunoService, AlunoService>();
 
             // Conteudo
             services.AddScoped<IConteudoAppService, ConteudoAppService>();
