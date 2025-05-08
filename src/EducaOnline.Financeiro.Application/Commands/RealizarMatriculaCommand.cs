@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace EducaOnline.Financeiro.Application.Commands
 {
-    public class RealizarMatriculaCommand : Command
+    public class RealizarPagamentoMatriculaCommand : Command
     {
         public Guid AlunoId { get; set; }
         public Guid CursoId { get; set; }
@@ -21,7 +21,7 @@ namespace EducaOnline.Financeiro.Application.Commands
     }
 
 
-    public class RealizarMatriculaValidation : AbstractValidator<RealizarMatriculaCommand>
+    public class RealizarMatriculaValidation : AbstractValidator<RealizarPagamentoMatriculaCommand>
     {
         public RealizarMatriculaValidation()
         {

@@ -1,12 +1,5 @@
 ﻿using EducaOnline.Conteudo.Domain.ValueObjects;
 using EducaOnline.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace EducaOnline.Conteudo.Domain
 {
@@ -43,17 +36,11 @@ namespace EducaOnline.Conteudo.Domain
 
         public void AdicionarAula(Aula aula)
         {
-            if (Aulas.Any(a => a.HorarioInicio < aula.HorarioFim && a.HorarioFim > aula.HorarioInicio))
-                throw new DomainException("Conflito de horário com outra aula.");
-
             Aulas.Add(aula);
         }
 
         public void AlterarAula(Guid aulaId, Aula aula)
         {
-            if (Aulas.Any(a => a.Id != aulaId && a.HorarioInicio < aula.HorarioFim && a.HorarioFim > aula.HorarioInicio))
-                throw new DomainException("Conflito de horário com outra aula.");
-
             foreach (var aulaDomain in Aulas.Where(p => p.Id == aulaId))
                 aulaDomain.Atualizar(aula);
         }

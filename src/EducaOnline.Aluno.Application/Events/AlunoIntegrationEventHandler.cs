@@ -20,8 +20,6 @@ namespace EducaOnline.Aluno.Application.Events
 
         public async Task Handle(PagamentoMatriculaEvent notification, CancellationToken cancellationToken)
         {
-            // Atualizar o status da matricula de acordo com o status de pagamento
-
             if (notification.Status.Equals(nameof(StatusPagamentoEnum.FALHA_PAGAMENTO)))
             {
                 await _domainNotification.Handle(new DomainNotification("Pagamento", $"Falha ao realizar pagamento, dados do cartão inválidos | Código {nameof(StatusPagamentoEnum.FALHA_PAGAMENTO)}"), new CancellationToken());
@@ -29,7 +27,7 @@ namespace EducaOnline.Aluno.Application.Events
             }
 
             var aluno = await _alunoRepository.BuscarAlunoPorId(notification.AlunoId);
-            aluno.Matricular(new Matricula(notification.CursoId));
+            aluno.AtualizarStatusMatricula(StatusMatriculaEnum.EM_ANDAMENTO);
 
             _alunoRepository.AtualizarAluno(aluno);
             await _alunoRepository.UnitOfWork.Commit();

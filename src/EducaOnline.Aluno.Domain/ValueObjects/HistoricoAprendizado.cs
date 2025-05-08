@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EducaOnline.Aluno.Domain.ValueObjects
+﻿namespace EducaOnline.Aluno.Domain.ValueObjects
 {
     public class HistoricoAprendizado
     {
         public int TotalHorasEstudadas { get; private set; }
         public int TotalAulasConcluidas { get; private set; }
-        public double MediaAproveitamento { get; private set; }
+        public double Progresso { get; private set; }
+        public int TotalAulas { get; private set; }
 
         private HistoricoAprendizado() { }
 
-        public HistoricoAprendizado(int totalHoras, int totalAulas, double mediaAproveitamento)
+        public HistoricoAprendizado(int totalHoras, int totalAulasConcluidas, int totalAulas, double progresso = 0)
         {
             TotalHorasEstudadas = totalHoras;
+            TotalAulasConcluidas = totalAulasConcluidas;
             TotalAulasConcluidas = totalAulas;
-            MediaAproveitamento = mediaAproveitamento;
+            Progresso = progresso;
         }
 
-        public HistoricoAprendizado Atualizar(int novasHoras, int novasAulas, double novaMedia)
+        public void Atualizar(int novasHoras)
         {
-            return new HistoricoAprendizado(
-                TotalHorasEstudadas + novasHoras,
-                TotalAulasConcluidas + novasAulas,
-                novaMedia
-            );
+            TotalHorasEstudadas += 1;
+            TotalAulasConcluidas += 1;
+            Progresso = (TotalAulasConcluidas * 100) / TotalAulas;
         }
     }
 }

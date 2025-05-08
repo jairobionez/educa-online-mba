@@ -13,6 +13,7 @@ namespace EducaOnline.Aluno.Data
         public DbSet<Domain.Aluno> Alunos { get; set; }
         public DbSet<Certificado> Certificados { get; set; }
         public DbSet<Matricula> Matriculas { get; set; }
+        public DbSet<AulaConcluida> AulasConcluidas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

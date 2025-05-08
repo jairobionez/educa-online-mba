@@ -20,13 +20,16 @@ namespace EducaOnline.Aluno.Data.Mappings
                .Property(p => p.TotalHorasEstudadas);
 
             builder.OwnsOne(p => p.HistoricoAprendizado)
-               .Property(p => p.MediaAproveitamento);
+               .Property(p => p.Progresso);
 
-            builder.HasMany(p => p.Matriculas)
-                .WithOne(p => p.Aluno)
-                .HasForeignKey(p => p.AlunoId);
+            builder.OwnsOne(p => p.HistoricoAprendizado)
+              .Property(p => p.TotalAulas);
 
-            builder.HasMany(p => p.Certificados)
+            builder.HasOne(p => p.Matricula);
+
+            builder.HasOne(p => p.Certificado);
+
+            builder.HasMany(p => p.AulasConcluidas)
                 .WithOne(p => p.Aluno)
                 .HasForeignKey(p => p.AlunoId);
         }
@@ -40,8 +43,7 @@ namespace EducaOnline.Aluno.Data.Mappings
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(p => p.Vigente)
-                .HasDefaultValue(false);
+            builder.Property(p => p.Status);
         }
     }
 
@@ -50,6 +52,16 @@ namespace EducaOnline.Aluno.Data.Mappings
         public void Configure(EntityTypeBuilder<Certificado> builder)
         {
             builder.ToTable("Certificado");
+
+            builder.HasKey(x => x.Id);
+        }
+    }
+
+    public class AulaConcluidaMapping : IEntityTypeConfiguration<AulaConcluida>
+    {
+        public void Configure(EntityTypeBuilder<AulaConcluida> builder)
+        {
+            builder.ToTable("AulaConcluida");
 
             builder.HasKey(x => x.Id);
         }

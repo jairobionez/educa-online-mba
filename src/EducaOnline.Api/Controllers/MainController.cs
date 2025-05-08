@@ -9,7 +9,7 @@ namespace EducaOnline.Api.Controllers
     public abstract class MainController : Controller
     {
         private readonly DomainNotificationHandler _notifications;
-        private readonly IMediatorHandler _mediatorHandler;
+        protected readonly IMediatorHandler _mediatorHandler;
 
         protected MainController(INotificationHandler<DomainNotification> notifications,
                                  IMediatorHandler mediatorHandler)

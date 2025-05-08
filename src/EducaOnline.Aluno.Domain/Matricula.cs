@@ -1,4 +1,5 @@
 ﻿using EducaOnline.Core.DomainObjects;
+using EducaOnline.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,17 @@ namespace EducaOnline.Aluno.Domain
         {
             CursoId = cursoId;
             DataMatricula = DateTime.UtcNow;
-            Vigente = true;
+            Status = StatusMatriculaEnum.PENDENTE_PAGAMENTO;
         }
 
         public Guid Id { get; private set; }
         public Guid CursoId { get; private set; }
         public DateTime DataMatricula { get; private set; }
-        public bool Vigente { get; private set; }
+        public StatusMatriculaEnum Status { get; private set; }
 
         public Guid AlunoId { get; private set; }
         public Aluno Aluno { get; private set; }
+
+        public void AtualizarStatus(StatusMatriculaEnum status) => Status = status;
     }
 }

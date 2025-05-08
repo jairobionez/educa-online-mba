@@ -25,12 +25,22 @@ namespace EducaOnline.Aluno.Data.Repository
             _context.Alunos.Update(aluno);
         }
 
+        public async Task<int> BuscarUltimoRa()
+        {
+            return await _context.Alunos.MaxAsync(p => p.Ra);
+        }
+
+        public IQueryable<Domain.Aluno?> BuscarAlunos()
+        {
+            return _context.Alunos;
+        }
+
         public async Task<Domain.Aluno?> BuscarAlunoPorId(Guid id)
         {
             return await _context.Alunos.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Domain.Aluno?> BuscarAlunoPorRa(string ra)
+        public async Task<Domain.Aluno?> BuscarAlunoPorRa(int ra)
         {
             return await _context.Alunos.FirstOrDefaultAsync(p => p.Ra == ra);
         }

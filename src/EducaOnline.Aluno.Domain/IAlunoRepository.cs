@@ -7,7 +7,9 @@ namespace EducaOnline.Aluno.Domain
     {
         void AdicionarAluno(Domain.Aluno aluno);
         void AtualizarAluno(Domain.Aluno aluno);
-        Task<Domain.Aluno?> BuscarAlunoPorRa(string ra);
+        IQueryable<Domain.Aluno?> BuscarAlunos();
+        Task<Domain.Aluno?> BuscarAlunoPorRa(int ra);
         Task<Domain.Aluno?> BuscarAlunoPorId(Guid id);
+        Task<int> BuscarUltimoRa();
     }
 }
