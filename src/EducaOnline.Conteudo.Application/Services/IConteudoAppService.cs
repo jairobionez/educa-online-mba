@@ -9,7 +9,7 @@ namespace EducaOnline.Conteudo.Application.Services
 {
     public interface IConteudoAppService
     {
-        Task<CursoResponseViewModel> BuscarCursos();
+        Task<List<CursoResponseViewModel>> BuscarCursos();
         Task<CursoResponseViewModel> BuscarCurso(Guid id);
         Task AdicionarCurso(CursoViewModel model);
         Task AlterarNomeCurso(Guid id, CursoNomeViewModel model);

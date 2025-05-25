@@ -11,12 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EducaOnline.Aluno.AntiCorruption\EducaOnline.Aluno.AntiCorruption.csproj" />
     <ProjectReference Include="..\EducaOnline.Aluno.Data\EducaOnline.Aluno.Data.csproj" />
     <ProjectReference Include="..\EducaOnline.Aluno.Domain\EducaOnline.Aluno.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>

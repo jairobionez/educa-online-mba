@@ -36,13 +36,20 @@ namespace EducaOnline.Conteudo.Domain
 
         public void AdicionarAula(Aula aula)
         {
+            if(Aulas == null)
+                Aulas = new List<Aula>();
+
             Aulas.Add(aula);
+
+            ConteudoProgramatico.AtualizarCargaHoraria(Aulas.Sum(p => p.TotalHoras));
         }
 
         public void AlterarAula(Guid aulaId, Aula aula)
         {
             foreach (var aulaDomain in Aulas.Where(p => p.Id == aulaId))
                 aulaDomain.Atualizar(aula);
+
+            ConteudoProgramatico.AtualizarCargaHoraria(Aulas.Sum(p => p.TotalHoras));
         }
 
         public void RemoverAula(Guid aulaId)
@@ -53,6 +60,8 @@ namespace EducaOnline.Conteudo.Domain
                 throw new DomainException("Aula não encontrada");
 
             Aulas.Remove(aula);
+
+            ConteudoProgramatico.AtualizarCargaHoraria(Aulas.Sum(p => p.TotalHoras));
         }
 
         public void AtualizarConteudoProgramatico(ConteudoProgramatico conteudoProgramatico)

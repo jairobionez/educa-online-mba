@@ -13,13 +13,13 @@
         {
             TotalHorasEstudadas = totalHoras;
             TotalAulasConcluidas = totalAulasConcluidas;
-            TotalAulasConcluidas = totalAulas;
+            TotalAulas = totalAulas;
             Progresso = progresso;
         }
 
         public void Atualizar(int novasHoras)
         {
-            TotalHorasEstudadas += 1;
+            TotalHorasEstudadas += novasHoras;
             TotalAulasConcluidas += 1;
             Progresso = (TotalAulasConcluidas * 100) / TotalAulas;
         }

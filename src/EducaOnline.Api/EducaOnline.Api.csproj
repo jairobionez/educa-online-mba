@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EducaOnline.Aluno.AntiCorruption\EducaOnline.Aluno.AntiCorruption.csproj" />
     <ProjectReference Include="..\EducaOnline.Aluno.Application\EducaOnline.Aluno.Application.csproj" />
+    <ProjectReference Include="..\EducaOnline.Aluno.Domain\EducaOnline.Aluno.Domain.csproj" />
     <ProjectReference Include="..\EducaOnline.Conteudo.Application\EducaOnline.Conteudo.Application.csproj" />
     <ProjectReference Include="..\EducaOnline.Conteudo.Data\EducaOnline.Conteudo.Data.csproj" />
     <ProjectReference Include="..\EducaOnline.Core\EducaOnline.Core.csproj" />

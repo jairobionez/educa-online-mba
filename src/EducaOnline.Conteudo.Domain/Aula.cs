@@ -11,13 +11,13 @@ namespace EducaOnline.Conteudo.Domain
     {
         protected Aula()
         {
-            
         }
 
         public Aula(string titulo, string descricao, int totalHoras)
         {
             Titulo = titulo;
             Descricao = descricao;
+            TotalHoras = totalHoras;
         }
 
         public string Titulo { get; private set; }

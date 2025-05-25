@@ -18,7 +18,7 @@ namespace EducaOnline.Conteudo.Application.AutoMapper
             CreateMap<CursoViewModel, Curso>();
 
             CreateMap<Aula, AulaResponseViewModel>();
-            CreateMap<AulaViewModel, Aula>();
+            CreateMap<AulaViewModel, Aula>().ForMember(p => p.Id, opt => opt.Ignore());
 
             CreateMap<ConteudoProgramaticoViewModel, ConteudoProgramatico>()
                 .ReverseMap();

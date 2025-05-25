@@ -1,4 +1,5 @@
-﻿using EducaOnline.Aluno.Domain;
+﻿using EducaOnline.Aluno.AntiCorruption;
+using EducaOnline.Aluno.Domain;
 using EducaOnline.Core.Communication;
 using EducaOnline.Core.DomainObjects;
 using EducaOnline.Core.Enums;
@@ -12,15 +13,18 @@ namespace EducaOnline.Aluno.Application.Commands
     public class AlunoCommandHandler :
         IRequestHandler<AdicionarAlunoCommand, bool>,
         IRequestHandler<RealizarMatriculaCommand, bool>,
-        IRequestHandler<ConcluirAulaCommand, bool>
+        IRequestHandler<ConcluirAulaCommand, bool>,
+        IRequestHandler<EmitirCertificadoCommand, bool>
     {
         private readonly IMediatorHandler _mediatorHandler;
         private readonly IAlunoRepository _alunoRepository;
+        private readonly IAulaService _aulaService;
 
-        public AlunoCommandHandler(IMediatorHandler mediatorHandler, IAlunoRepository alunoRepository)
+        public AlunoCommandHandler(IMediatorHandler mediatorHandler, IAlunoRepository alunoRepository, IAulaService aulaService)
         {
             _mediatorHandler = mediatorHandler;
             _alunoRepository = alunoRepository;
+            _aulaService = aulaService;
         }
 
         public async Task<bool> Handle(AdicionarAlunoCommand request, CancellationToken cancellationToken)
@@ -49,9 +53,11 @@ namespace EducaOnline.Aluno.Application.Commands
             if (aluno == null)
                 throw new DomainException("Aluno não encontrado.");
 
+            if (aluno.Matricula != null)
+                throw new DomainException("Aluno já está com uma matricula ativa");
 
-            // TODO: Fazer uma camada anticorrupção para pegar o total de aulas do curso.
-            aluno.RealizarMatricula(request.CursoId, 0);
+            var totalAulas = await _aulaService.ObterTotalAulasPorCurso(request.CursoId);
+            aluno.RealizarMatricula(request.CursoId, totalAulas);
 
             _alunoRepository.AtualizarAluno(aluno);
             await _alunoRepository.UnitOfWork.Commit();
@@ -75,14 +81,30 @@ namespace EducaOnline.Aluno.Application.Commands
             if (aluno.Matricula.Status == StatusMatriculaEnum.CURSO_CONCLUIDO)
                 throw new DomainException("Não é possível concluir após a conclusão do curso");
 
-            // TODO: Fazer uma camada anticorrupção para pegar o total de aulas do curso.
-            aluno.ConcluirAula(request.AulaId, 1);
+            var horasAula = await _aulaService.ObterHorasAulasPorCurso(request.CursoId, request.AulaId);
+
+            aluno.ConcluirAula(request.AulaId, horasAula);
+
+            _alunoRepository.AtualizarAluno(aluno);
+            await _alunoRepository.UnitOfWork.Commit();
+
+            return true;
+        }
+
+        public async Task<bool> Handle(EmitirCertificadoCommand request, CancellationToken cancellationToken)
+        {
+            var aluno = await _alunoRepository.BuscarAlunoPorId(request.AlunoId);
 
             if (aluno.HistoricoAprendizado.Progresso >= 100)
             {
-                aluno.EmitirCertificado(new Certificado("teste"));
+                var curso = await _aulaService.ObterNomeCurso(request.CursoId);
+
+                aluno.EmitirCertificado(new Certificado(curso));
                 aluno.AtualizarStatusMatricula(StatusMatriculaEnum.CURSO_CONCLUIDO);
             }
+
+            _alunoRepository.AtualizarAluno(aluno);
+            await _alunoRepository.UnitOfWork.Commit();
 
             return true;
         }

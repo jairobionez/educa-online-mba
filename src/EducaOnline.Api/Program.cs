@@ -14,6 +14,7 @@ builder.Configuration
 builder.Services.AddApiConfig(builder.Configuration);
 builder.Services.AddDependencyConfig();
 builder.Services.AddIdentityConfig(builder.Configuration);
+builder.Services.AddSeedConfig(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(ConteudoMapperConfig));
 
 var app = builder.Build();

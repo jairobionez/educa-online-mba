@@ -1,4 +1,5 @@
 
+
 # **Educa Online - Plataforma de controle do aluno**
 
 [](https://github.com/jairobionez/gestao-contas-mba#gest%C3%A3o-conta--plataforma-de-controle-financeiro-pessoal)
@@ -87,6 +88,20 @@ A estrutura do projeto é organizada da seguinte forma:
 
 -   **JWT para API:**  As chaves de configuração do JWT estão no  `appsettings.json`.
 -   **Migrações do Banco de Dados:**  As migrações são gerenciadas pelo Entity Framework Core. Não é necessário aplicar devido a configuração do Seed de dados.
+
+	 **Para adicionar novos migrations por contexto delimitado**
+	 É necessário executar estes comandos em seus respectivos terminas dos projeto .Data ex: *EducaOnline.Aluno.Data*
+	- Aluno: `dotnet  ef  migrations  add  InitialAluno  -c  AlunoDbContext  -s  ../EducaOnline.Api/  -p  ./  -o  ./Migrations`
+	- Conteúdo: `dotnet  ef  migrations  add  InitialConteudo  -c  ConteudoDbContext  -s  ../EducaOnline.Api/  -p  ./  -o  ./Migrations`
+	-  Financeiro: `dotnet  ef  migrations  add  InitialFinanceiro  -c  PagamentoDbContext  -s  ../EducaOnline.Api/  -p  ./  -o  ./Migrations`
+	
+**Usuários**
+admin@educaonline.com.br
+Teste@123
+
+aluno@educaonline.com.br
+Teste@123
+
 
 ## **8. Documentação da API**
 

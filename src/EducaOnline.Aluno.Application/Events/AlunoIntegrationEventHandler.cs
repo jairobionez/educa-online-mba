@@ -27,6 +27,13 @@ namespace EducaOnline.Aluno.Application.Events
             }
 
             var aluno = await _alunoRepository.BuscarAlunoPorId(notification.AlunoId);
+
+            if (aluno.Matricula.Status == StatusMatriculaEnum.CURSO_CONCLUIDO)
+            {
+                await _domainNotification.Handle(new DomainNotification("Pagamento", $"Não é possível realizar o pagamento de um curso já concluído"), new CancellationToken());
+                return;
+            }
+
             aluno.AtualizarStatusMatricula(StatusMatriculaEnum.EM_ANDAMENTO);
 
             _alunoRepository.AtualizarAluno(aluno);

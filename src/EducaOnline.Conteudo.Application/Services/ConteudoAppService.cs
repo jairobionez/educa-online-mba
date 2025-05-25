@@ -19,9 +19,9 @@ namespace EducaOnline.Conteudo.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<CursoResponseViewModel> BuscarCursos()
+        public async Task<List<CursoResponseViewModel>> BuscarCursos()
         {
-            return _mapper.Map<CursoResponseViewModel>(await _conteudoService.BuscarCursos());
+            return _mapper.Map<List<CursoResponseViewModel>>(await _conteudoService.BuscarCursos());
         }
 
         public async Task<CursoResponseViewModel> BuscarCurso(Guid id)

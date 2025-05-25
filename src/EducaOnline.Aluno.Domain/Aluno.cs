@@ -19,6 +19,7 @@ namespace EducaOnline.Aluno.Domain
             Email = email;
             DataCadastro = DateTime.Now;
             AulasConcluidas = new HashSet<AulaConcluida>();
+            Ra = new Random().Next(100000, 999999);
         }
 
         public Guid Id { get; private set; }
@@ -43,11 +44,10 @@ namespace EducaOnline.Aluno.Domain
             if(AulasConcluidas == null)
                 AulasConcluidas = new List<AulaConcluida>();
 
-
             var aulaConcluida = AulasConcluidas.FirstOrDefault(p => p.AulaId == aulaId);
 
             if (aulaConcluida != null)
-                return;
+                throw new DomainException("Aula já concluída");
 
             AulasConcluidas.Add(new AulaConcluida(aulaId));
             AtualizarHistorico(horas);

@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8DF72C19-3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Core", "src\EducaOnline.Core\EducaOnline.Core.csproj", "{79D4EBD4-250E-4990-AE63-2C65FC9110A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducaOnline.Aluno.AntiCorruption", "src\EducaOnline.Aluno.AntiCorruption\EducaOnline.Aluno.AntiCorruption.csproj", "{4482A490-9B5C-4D5A-8261-A3115F594FCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{79D4EBD4-250E-4990-AE63-2C65FC9110A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79D4EBD4-250E-4990-AE63-2C65FC9110A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79D4EBD4-250E-4990-AE63-2C65FC9110A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{C06BF4E2-72C3-462A-BAC0-EF1E4F8E7634} = {8BCEB896-1CC6-482A-81DC-D491E15F09BF}
 		{8DF72C19-37B6-4612-9265-7DFAF4622DF5} = {B3DFF367-C25A-4087-B638-9C3A6478C3F4}
 		{79D4EBD4-250E-4990-AE63-2C65FC9110A5} = {8DF72C19-37B6-4612-9265-7DFAF4622DF5}
+		{4482A490-9B5C-4D5A-8261-A3115F594FCD} = {8BCEB896-1CC6-482A-81DC-D491E15F09BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89A5D0BD-A151-4BF7-AE58-A2A1D7397E41}

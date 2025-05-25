@@ -4,7 +4,7 @@
     {
         protected Administrador()
         {
-            
+            Ativo = true;
         }
 
         public Administrador(Guid id, string nome, string email)
@@ -12,6 +12,7 @@
             Id = id;
             Nome = nome;
             Email = email;
+            Ativo = true;
         }
 
         public Guid Id { get; set; }

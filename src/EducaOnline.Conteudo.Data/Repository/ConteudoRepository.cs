@@ -15,9 +15,9 @@ namespace EducaOnline.Conteudo.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<Curso> BuscarCurso(Guid id) => await _context.Cursos.FirstOrDefaultAsync(p => p.Id == id);
+        public async Task<Curso> BuscarCurso(Guid id) => await _context.Cursos.Include(p => p.Aulas).FirstOrDefaultAsync(p => p.Id == id);
 
-        public async Task<List<Curso>> BuscarCursos() => await _context.Cursos.ToListAsync();
+        public async Task<List<Curso>> BuscarCursos() => await _context.Cursos.Include(p => p.Aulas).ToListAsync();
 
         public void AdicionarCurso(Curso curso) => _context.Cursos.Add(curso);
 

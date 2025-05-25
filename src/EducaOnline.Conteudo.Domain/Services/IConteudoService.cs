@@ -18,5 +18,7 @@ namespace EducaOnline.Conteudo.Domain.Services
         Task<bool> AdicionarAula(Guid cursoId, Aula aula);
         Task<bool> AlterarAula(Guid cursoId, Guid aulaId, Aula aula);
         Task<bool> RemoverAula(Guid cursoId, Guid aulaId);
+        Task<int> ObterTotalAulasPorCurso(Guid cursoId);
+        Task<int> ObterHorasAulasPorCurso(Guid cursoId, Guid aulaId);
     }
 }

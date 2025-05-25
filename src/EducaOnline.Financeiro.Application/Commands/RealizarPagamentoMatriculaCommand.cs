@@ -5,6 +5,17 @@ namespace EducaOnline.Financeiro.Application.Commands
 {
     public class RealizarPagamentoMatriculaCommand : Command
     {
+        public RealizarPagamentoMatriculaCommand(Guid alunoId, Guid cursoId, string nomeCartao, string numeroCartao, DateTime expiracaoCartao, string cvvCartao, decimal valorCurso)
+        {
+            AlunoId = alunoId;
+            CursoId = cursoId;
+            NomeCartao = nomeCartao;
+            NumeroCartao = numeroCartao;
+            ExpiracaoCartao = expiracaoCartao;
+            CvvCartao = cvvCartao;
+            ValorCurso = valorCurso;
+        }
+
         public Guid AlunoId { get; set; }
         public Guid CursoId { get; set; }
         public string NomeCartao { get; set; }

@@ -5,7 +5,15 @@ namespace EducaOnline.Aluno.Application.Commands
 {
     public class ConcluirAulaCommand : Command
     {
+        public ConcluirAulaCommand(Guid alunoId, Guid cursoId, Guid aulaId)
+        {
+            AlunoId = alunoId;
+            AulaId = aulaId;
+            CursoId = cursoId;
+        }
+
         public Guid AlunoId { get; set; }
+        public Guid CursoId { get; set; }
         public Guid AulaId { get; set; }
 
         public override bool EhValido()
@@ -26,6 +34,10 @@ namespace EducaOnline.Aluno.Application.Commands
             RuleFor(c => c.AlunoId)
                    .NotEqual(Guid.Empty)
                    .WithMessage("Id do aluno inválido");
+
+            RuleFor(c => c.CursoId)
+                .NotEqual(Guid.Empty)
+                .WithMessage("Id do curso inválido");
         }
     }
 }

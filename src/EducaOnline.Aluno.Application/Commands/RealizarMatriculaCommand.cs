@@ -5,6 +5,12 @@ namespace EducaOnline.Aluno.Application.Commands
 {
     public class RealizarMatriculaCommand : Command
     {
+        public RealizarMatriculaCommand(Guid cursoId, Guid alunoId)
+        {
+            CursoId = cursoId;
+            AlunoId = alunoId;
+        }
+
         public Guid CursoId { get; set; }
         public Guid AlunoId { get; set; }
 

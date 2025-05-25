@@ -32,17 +32,28 @@ namespace EducaOnline.Aluno.Data.Repository
 
         public IQueryable<Domain.Aluno?> BuscarAlunos()
         {
-            return _context.Alunos;
+            return _context.Alunos
+                .Include(p => p.Matricula)
+                .Include(p => p.AulasConcluidas)
+                .Include(p => p.Certificado);
         }
 
         public async Task<Domain.Aluno?> BuscarAlunoPorId(Guid id)
         {
-            return await _context.Alunos.FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Alunos
+                .Include(p => p.Matricula)
+                .Include(p => p.AulasConcluidas)
+                .Include(p => p.Certificado)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Domain.Aluno?> BuscarAlunoPorRa(int ra)
         {
-            return await _context.Alunos.FirstOrDefaultAsync(p => p.Ra == ra);
+            return await _context.Alunos
+                .Include(p => p.Matricula)
+                .Include(p => p.AulasConcluidas)
+                .Include(p => p.Certificado)
+                .FirstOrDefaultAsync(p => p.Ra == ra);
         }
 
         public void Dispose()

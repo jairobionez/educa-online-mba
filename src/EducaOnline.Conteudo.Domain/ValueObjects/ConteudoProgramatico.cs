@@ -21,5 +21,7 @@ namespace EducaOnline.Conteudo.Domain.ValueObjects
         public string Descricao { get; private set; }
         public int CargaHoraria { get; private set; }
         public string Objetivos { get; private set; }
+
+        public void AtualizarCargaHoraria(int carga) => CargaHoraria = carga;
     }
 }

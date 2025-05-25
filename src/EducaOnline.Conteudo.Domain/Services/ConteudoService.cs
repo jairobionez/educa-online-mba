@@ -66,6 +66,31 @@ namespace EducaOnline.Conteudo.Domain.Services
             // TODO: Regra
         }
 
+        public async Task<int> ObterTotalAulasPorCurso(Guid cursoId)
+        {
+            var curso = await _conteudoRepository.BuscarCurso(cursoId);
+
+            if (curso == null)
+                throw new DomainException("Curso não encontrado");
+
+            return curso.Aulas.Count();
+        }
+
+        public async Task<int> ObterHorasAulasPorCurso(Guid cursoId, Guid aulaId)
+        {
+            var curso = await _conteudoRepository.BuscarCurso(cursoId);
+
+            if (curso == null)
+                throw new DomainException("Curso não encontrado");
+
+            var aula = curso.Aulas.FirstOrDefault(p => p.Id == aulaId);
+
+            if (aula == null)
+                throw new DomainException("Aula não encontrada");
+
+            return aula.TotalHoras;
+        }
+
         public async Task<bool> AdicionarAula(Guid cursoId, Aula aula)
         {
             var curso = await _conteudoRepository.BuscarCurso(cursoId);

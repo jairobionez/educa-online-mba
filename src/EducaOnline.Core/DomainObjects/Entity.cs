@@ -11,7 +11,7 @@ namespace EducaOnline.Core.DomainObjects
 
         protected Entity()
         {
-            Id = Guid.NewGuid();
+            Id = Guid.Empty;
         }
 
         public void AdicionarEvento(Event evento)

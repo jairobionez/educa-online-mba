@@ -16,7 +16,7 @@ namespace EducaOnline.Aluno.Domain
 
         public Certificado(string curso)
         {
-            Id = Guid.NewGuid();
+            Id = Guid.Empty;
             Curso = curso;
             DataEmissao = DateTime.UtcNow;
             Numero = $"Cert-{new Random().Next(1, 99999)}";

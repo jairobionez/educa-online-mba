@@ -1,5 +1,6 @@
 ﻿using EducaOnline.Aluno.Data;
 using EducaOnline.Api.Data;
+using EducaOnline.Api.Middlewares;
 using EducaOnline.Conteudo.Data;
 using EducaOnline.Financeiro.Data;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,11 @@ namespace EducaOnline.Api.Configurations
             services.AddDbContext<PagamentoDbContext>(options =>
               options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllers();
+            services.AddControllers()
+                  .AddJsonOptions(options =>
+                  {
+                      options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+                  });
 
             services.AddCors(options =>
             {
@@ -54,6 +59,7 @@ namespace EducaOnline.Api.Configurations
 
             app.UseHttpsRedirection();
 
+            app.UseMiddleware(typeof(ExceptionMiddleware));
             app.UseRouting();
 
             app.UseCors("Total");
