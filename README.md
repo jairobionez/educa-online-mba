@@ -96,11 +96,11 @@ A estrutura do projeto é organizada da seguinte forma:
 	-  Financeiro: `dotnet  ef  migrations  add  InitialFinanceiro  -c  PagamentoDbContext  -s  ../EducaOnline.Api/  -p  ./  -o  ./Migrations`
 	
 **Usuários**
-admin@educaonline.com.br
-Teste@123
+-  admin@educaonline.com.br
+-  Teste@123
 
-aluno@educaonline.com.br
-Teste@123
+-  aluno@educaonline.com.br
+-  Teste@123
 
 
 ## **8. Documentação da API**
