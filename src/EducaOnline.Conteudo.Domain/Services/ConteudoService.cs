@@ -35,7 +35,7 @@ namespace EducaOnline.Conteudo.Domain.Services
             await _conteudoRepository.UnitOfWork.Commit();
         }
 
-        public async Task AlterarNomeCurso(Guid id, string nome)
+        public async Task<Curso> AlterarNomeCurso(Guid id, string nome)
         {
             var curso = await _conteudoRepository.BuscarCurso(id);
             if (curso == null)
@@ -46,9 +46,11 @@ namespace EducaOnline.Conteudo.Domain.Services
             _conteudoRepository.AlterarCurso(curso);
 
             await _conteudoRepository.UnitOfWork.Commit();
+
+            return curso;
         }
 
-        public async Task AlterarConteudoProgramaticoCurso(Guid id, ConteudoProgramatico conteudoProgramatico)
+        public async Task<Curso> AlterarConteudoProgramaticoCurso(Guid id, ConteudoProgramatico conteudoProgramatico)
         {
             var curso = await _conteudoRepository.BuscarCurso(id);
             if (curso == null)
@@ -59,6 +61,8 @@ namespace EducaOnline.Conteudo.Domain.Services
             _conteudoRepository.AlterarCurso(curso);
 
             await _conteudoRepository.UnitOfWork.Commit();
+
+            return curso;
         }
 
         public async Task DesativarCurso(Guid id)
@@ -91,7 +95,7 @@ namespace EducaOnline.Conteudo.Domain.Services
             return aula.TotalHoras;
         }
 
-        public async Task<bool> AdicionarAula(Guid cursoId, Aula aula)
+        public async Task<Curso> AdicionarAula(Guid cursoId, Aula aula)
         {
             var curso = await _conteudoRepository.BuscarCurso(cursoId);
             if (curso == null)
@@ -100,11 +104,11 @@ namespace EducaOnline.Conteudo.Domain.Services
             curso.AdicionarAula(aula);
 
             _conteudoRepository.AlterarCurso(curso);
-
-            return await _conteudoRepository.UnitOfWork.Commit();
+            await _conteudoRepository.UnitOfWork.Commit();
+            return curso;
         }
 
-        public async Task<bool> AlterarAula(Guid cursoId, Guid aulaId, Aula aula)
+        public async Task<Curso> AlterarAula(Guid cursoId, Guid aulaId, Aula aula)
         {
             var curso = await _conteudoRepository.BuscarCurso(cursoId);
             if (curso == null)
@@ -114,10 +118,11 @@ namespace EducaOnline.Conteudo.Domain.Services
 
             _conteudoRepository.AlterarCurso(curso);
 
-            return await _conteudoRepository.UnitOfWork.Commit();
+            await _conteudoRepository.UnitOfWork.Commit();
+            return curso;
         }
 
-        public async Task<bool> RemoverAula(Guid cursoId, Guid aulaId)
+        public async Task<Curso> RemoverAula(Guid cursoId, Guid aulaId)
         {
             var curso = await _conteudoRepository.BuscarCurso(cursoId);
             if (curso == null)
@@ -127,7 +132,8 @@ namespace EducaOnline.Conteudo.Domain.Services
 
             _conteudoRepository.AlterarCurso(curso);
 
-            return await _conteudoRepository.UnitOfWork.Commit();
+            await _conteudoRepository.UnitOfWork.Commit();
+            return curso;
         }
     }
 }

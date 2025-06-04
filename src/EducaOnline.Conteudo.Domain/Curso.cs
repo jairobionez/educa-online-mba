@@ -66,9 +66,9 @@ namespace EducaOnline.Conteudo.Domain
 
         public void AtualizarConteudoProgramatico(ConteudoProgramatico conteudoProgramatico)
         {
-            ValidarConteudoProgramtico();
 
             ConteudoProgramatico = conteudoProgramatico;
+            ValidarConteudoProgramtico();
         }
 
         public void Validar()

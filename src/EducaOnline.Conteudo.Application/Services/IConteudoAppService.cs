@@ -1,4 +1,5 @@
 ﻿using EducaOnline.Conteudo.Application.ViewModels;
+using EducaOnline.Conteudo.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace EducaOnline.Conteudo.Application.Services
         Task<List<CursoResponseViewModel>> BuscarCursos();
         Task<CursoResponseViewModel> BuscarCurso(Guid id);
         Task AdicionarCurso(CursoViewModel model);
-        Task AlterarNomeCurso(Guid id, CursoNomeViewModel model);
-        Task AlterarConteudoProgramticoCurso(Guid id, ConteudoProgramaticoViewModel conteudoProgramatico);
+        Task<Curso> AlterarNomeCurso(Guid id, CursoNomeViewModel model);
+        Task<Curso> AlterarConteudoProgramticoCurso(Guid id, ConteudoProgramaticoViewModel conteudoProgramatico);
         Task DesativarCurso(Guid id);
         Task<CursoResponseViewModel> AdicionarAula(Guid cursoId, AulaViewModel model);
         Task<CursoResponseViewModel> AlterarAula(Guid cursoId, Guid aulaId, AulaViewModel model);

@@ -37,7 +37,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8DF72C19-3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Core", "src\EducaOnline.Core\EducaOnline.Core.csproj", "{79D4EBD4-250E-4990-AE63-2C65FC9110A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducaOnline.Aluno.AntiCorruption", "src\EducaOnline.Aluno.AntiCorruption\EducaOnline.Aluno.AntiCorruption.csproj", "{4482A490-9B5C-4D5A-8261-A3115F594FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Aluno.AntiCorruption", "src\EducaOnline.Aluno.AntiCorruption\EducaOnline.Aluno.AntiCorruption.csproj", "{4482A490-9B5C-4D5A-8261-A3115F594FCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{A7BDC170-A75E-4F6C-AA88-04F89E7F18B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Aluno.Teste", "src\EducaOnline.Aluno.Teste\EducaOnline.Aluno.Teste.csproj", "{4CAFD09C-4BFE-4B24-BB6B-76631BF05061}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducaOnline.Conteudo.Teste", "src\EducaOnline.Conteudo.Teste\EducaOnline.Conteudo.Teste.csproj", "{5252E0E3-3750-407A-81CE-93CB8A2D5D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducaOnline.Financeiro.Teste", "src\EducaOnline.Financeiro.Teste\EducaOnline.Financeiro.Teste.csproj", "{0F3D52C8-435A-43C3-82D2-58F09E66DBB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +101,18 @@ Global
 		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4482A490-9B5C-4D5A-8261-A3115F594FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CAFD09C-4BFE-4B24-BB6B-76631BF05061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAFD09C-4BFE-4B24-BB6B-76631BF05061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAFD09C-4BFE-4B24-BB6B-76631BF05061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAFD09C-4BFE-4B24-BB6B-76631BF05061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5252E0E3-3750-407A-81CE-93CB8A2D5D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5252E0E3-3750-407A-81CE-93CB8A2D5D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5252E0E3-3750-407A-81CE-93CB8A2D5D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5252E0E3-3750-407A-81CE-93CB8A2D5D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3D52C8-435A-43C3-82D2-58F09E66DBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3D52C8-435A-43C3-82D2-58F09E66DBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3D52C8-435A-43C3-82D2-58F09E66DBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3D52C8-435A-43C3-82D2-58F09E66DBB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +134,9 @@ Global
 		{8DF72C19-37B6-4612-9265-7DFAF4622DF5} = {B3DFF367-C25A-4087-B638-9C3A6478C3F4}
 		{79D4EBD4-250E-4990-AE63-2C65FC9110A5} = {8DF72C19-37B6-4612-9265-7DFAF4622DF5}
 		{4482A490-9B5C-4D5A-8261-A3115F594FCD} = {8BCEB896-1CC6-482A-81DC-D491E15F09BF}
+		{4CAFD09C-4BFE-4B24-BB6B-76631BF05061} = {A7BDC170-A75E-4F6C-AA88-04F89E7F18B2}
+		{5252E0E3-3750-407A-81CE-93CB8A2D5D5B} = {A7BDC170-A75E-4F6C-AA88-04F89E7F18B2}
+		{0F3D52C8-435A-43C3-82D2-58F09E66DBB3} = {A7BDC170-A75E-4F6C-AA88-04F89E7F18B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89A5D0BD-A151-4BF7-AE58-A2A1D7397E41}

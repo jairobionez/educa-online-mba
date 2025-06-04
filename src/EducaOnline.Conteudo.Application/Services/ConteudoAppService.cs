@@ -34,14 +34,14 @@ namespace EducaOnline.Conteudo.Application.Services
             await _conteudoService.AdicionarCurso(_mapper.Map<Curso>(model));
         }
 
-        public async Task AlterarNomeCurso(Guid id, CursoNomeViewModel model)
+        public async Task<Curso> AlterarNomeCurso(Guid id, CursoNomeViewModel model)
         {
-            await _conteudoService.AlterarNomeCurso(id, model.Nome);
+            return await _conteudoService.AlterarNomeCurso(id, model.Nome);
         }
 
-        public async Task AlterarConteudoProgramticoCurso(Guid id, ConteudoProgramaticoViewModel conteudoProgramatico)
+        public async Task<Curso> AlterarConteudoProgramticoCurso(Guid id, ConteudoProgramaticoViewModel conteudoProgramatico)
         {
-            await _conteudoService.AlterarConteudoProgramaticoCurso(id, _mapper.Map<ConteudoProgramatico>(conteudoProgramatico));
+            return await _conteudoService.AlterarConteudoProgramaticoCurso(id, _mapper.Map<ConteudoProgramatico>(conteudoProgramatico));
         }
 
         public async Task DesativarCurso(Guid id)
@@ -52,26 +52,23 @@ namespace EducaOnline.Conteudo.Application.Services
 
         public async Task<CursoResponseViewModel> AdicionarAula(Guid cursoId, AulaViewModel model)
         {
-            if (!(await _conteudoService.AdicionarAula(cursoId, _mapper.Map<Aula>(model))))
-                throw new DomainException("Falha ao adicionar aula");
+            var curso = await _conteudoService.AdicionarAula(cursoId, _mapper.Map<Aula>(model));
 
-            return _mapper.Map<CursoResponseViewModel>(await _conteudoService.BuscarCurso(cursoId));
+            return _mapper.Map<CursoResponseViewModel>(curso);
         }
 
         public async Task<CursoResponseViewModel> AlterarAula(Guid cursoId, Guid aulaId, AulaViewModel model)
         {
-            if (!(await _conteudoService.AlterarAula(cursoId, aulaId, _mapper.Map<Aula>(model))))
-                throw new DomainException("Falha ao alterar aula");
+            var curso = await _conteudoService.AlterarAula(cursoId, aulaId, _mapper.Map<Aula>(model));
 
-            return _mapper.Map<CursoResponseViewModel>(await _conteudoService.BuscarCurso(cursoId));
+            return _mapper.Map<CursoResponseViewModel>(curso);
         }
 
         public async Task<CursoResponseViewModel> RemoverAula(Guid cursoId, Guid aulaId)
         {
-            if (!(await _conteudoService.RemoverAula(cursoId, aulaId)))
-                throw new DomainException("Falha ao remover aula");
+            var curso = await _conteudoService.RemoverAula(cursoId, aulaId);
 
-            return _mapper.Map<CursoResponseViewModel>(await _conteudoService.BuscarCurso(cursoId));
+            return _mapper.Map<CursoResponseViewModel>(curso);
         }
     }
 }
